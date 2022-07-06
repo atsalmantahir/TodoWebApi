@@ -75,6 +75,7 @@ namespace TodoWebApi.Controllers
         public IActionResult UpdateTodoItem(Guid id,TodoWebApi.Models.ViewModels.CreateTodoItem todoItem)
         {
             var userId = this.GetUserId();
+
             var todoItemToUpdate = this.dbContext.TodoItem.Where(x => x.Id.Equals(id) && x.UserId.Equals(userId)).FirstOrDefault();
             if (todoItemToUpdate == null) 
             {
