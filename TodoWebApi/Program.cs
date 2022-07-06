@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 using TodoWebApi.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,7 +14,19 @@ builder.Services.AddDbContext<TodoWebApi.Data.TodoDbContext>(options =>
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options => 
+{
+    options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo 
+    {
+        Version = "v1",
+        Title = "Todo API",
+        Description = "Todo API built on ASP.NET Core 6.0",
+    });
+
+    // using System.Reflection;
+    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+});
 
 var app = builder.Build();
 
