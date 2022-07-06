@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TodoWebApi.Data;
 
@@ -18,6 +19,7 @@ namespace TodoWebApi.Controllers
         /// Fetch the list of todoitem.
         /// </summary>
         /// <returns></returns>
+        [Authorize]
         [HttpGet]
         public IActionResult GetTodoItems() 
         {
