@@ -20,6 +20,7 @@ namespace TodoWebApi.Data
                     new TodoItem
                     {
                         Id = Guid.NewGuid(),
+                        UserId = "NotAUserId",
                         Title = "Task 1",
                         Description = "Description for task 1",
                         CreatedDate = DateTime.Now,
@@ -28,6 +29,7 @@ namespace TodoWebApi.Data
                     }, new TodoItem
                     {
                         Id = Guid.NewGuid(),
+                        UserId = "NotAUserId",
                         Title = "Task 2",
                         Description = "Description for task 2",
                         CreatedDate = DateTime.Now,
@@ -36,6 +38,7 @@ namespace TodoWebApi.Data
                     }, new TodoItem
                     {
                         Id = Guid.NewGuid(),
+                        UserId = "NotAUserId",
                         Title = "Task 3",
                         Description = "Description for task 3",
                         CreatedDate = DateTime.Now,
